@@ -1,10 +1,11 @@
-from flask import Flask, request , render_template , redirect, send_file
+from flask import Flask, request , render_template , redirect, send_file ,jsonify
 import os ,datetime
 from app_manager import *
+
 UPLOAD_FOLDER = "./static/data/"
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024
+app.config['MAX_CONTENT_LENGTH'] = 12 * 1024 * 1024
 
 
 @app.before_request
@@ -17,9 +18,21 @@ def before_request():
 def index():
   return '<-- thealphaones blog backend service --> '
 
+@app.route('/blog-metadata')
+def blog_metadata():
+  id_ = request.args.get("id")
+  try:
+    data = metadata_reader(id_)
+  except: return "blog not avalable"
+  return jsonify(data)
+
+@app.route('/list-blog')
+def list_blog():
+  return jsonify( blog_list())
+
 @app.route('/endpoint')
 def endpoints():
-  return '<-- thealphaones blog backend service --> <br> endpints <br> /blog <br> /blog-upload <br> /get-all-data <br>  /remove-blog '
+  return '<-- thealphaones blog backend service --> <br> endpints <br> /blog <br> /blog-upload <br> /get-all-data <br>  /remove-blog <br> /list-blog <br> '
 
 @app.route('/blog')
 def sender_blog():
@@ -64,5 +77,5 @@ def delete_blog():
   return render_template("blog_delete.html")
 
 
-if __name__ == '__main__':
-   app.run(debug=True)
+# if __name__ == '__main__':
+#    app.run(debug=True)

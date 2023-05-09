@@ -53,3 +53,16 @@ def remove_blog(id,email):
             return 302
     else:
         return 301
+    
+
+def  metadata_reader(id):
+    f = open(f"static/data/{id}/metadata.json")
+    data = json.load(f)
+    f.close()
+    return data
+
+def blog_list():
+    blogs_list = os.listdir("static/data")
+    blogs_list.remove("ignore.dll")
+    print(blogs_list)
+    return blogs_list
