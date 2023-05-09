@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='app/tailwind.min.css') }}">
+    <title>Delete Blog - TheAlphaOnes</title>
+    <style>
+        input{
+            color: #ff5555;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-gray-900" style="color: whitesmoke;">
+    <div class=" py-6 sm:py-8 lg:py-12">
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <h2 class="mb-4 text-center text-2xl font-bold text-white md:mb-8 lg:text-3xl">Delete the blog completely </h2>
+      
+          <form method=post class="mx-auto max-w-lg rounded-lg border">
+            <div class="flex flex-col gap-4 p-4 md:p-8">
+              <div>
+                <label for="email" class="mb-2 inline-block text-sm text-white sm:text-base">Email</label>
+                <input name="email" class="w-full rounded border bg-gray-50 px-3 py-2  outline-none ring-indigo-300 transition duration-100 focus:ring" required />
+              </div>
+      
+              <div>
+                <label for="id" class="mb-2 inline-block text-sm text-white sm:text-base">id of the blog</label>
+                <input name="id" class="w-full rounded border bg-gray-50 px-3 py-2  outline-none ring-indigo-300 transition duration-100 focus:ring" required />
+              </div>
+      
+              <button class="block rounded-lg bg-black px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-base">Remove</button>
+      
+
+      
+
+            </div>
+      
+
+          </form>
+        </div>
+      </div>
+</body>
+</html>

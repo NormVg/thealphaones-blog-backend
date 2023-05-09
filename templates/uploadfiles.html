@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='app/tailwind.min.css') }}">
+    <style>
+        input,textarea{
+            color: black;
+        }
+    </style>
+    <title>Upload Blog - TheAlphaOnes </title>
+</head>
+<body style="color: whitesmoke;">
+
+
+
+    <div class="bg-gray-900 py-6 sm:py-8 lg:py-12">
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <!-- text - start -->
+          <div class="mb-10 md:mb-16">
+            <h2 class="mb-4 text-center text-2xl font-bold  md:mb-6 lg:text-3xl">Upload your blogs</h2>
+      
+            <p class="mx-auto max-w-screen-md text-center text-red-500 md:text-lg">NOTE :- upload your blog details and files here and the max file size is 10mb and no internal folder .</p>
+          </div>
+          <!-- text - end -->
+      
+          <!-- form - start -->
+          <form class="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2" method=post enctype=multipart/form-data>
+            <div>
+              <label for="writer" class="mb-2 inline-block text-sm  sm:text-base">Writer*</label>
+              <input name="writer" class="w-full rounded border bg-gray-50 px-3 py-2  outline-none ring-indigo-300 transition duration-100 focus:ring" required />
+            </div>
+      
+            <div class="sm:col-span-2">
+              <label for="title-blog" class="mb-2 inline-block text-sm  sm:text-base">Title of the blog*</label>
+              <input name="title-blog" class="w-full rounded border bg-gray-50 px-3 py-2  outline-none ring-indigo-300 transition duration-100 focus:ring" required />
+            </div>
+      
+            <div class="sm:col-span-2">
+              <label for="email" class="mb-2 inline-block text-sm  sm:text-base">Email*</label>
+              <input name="email" class="w-full rounded border bg-gray-50 px-3 py-2  outline-none ring-indigo-300 transition duration-100 focus:ring" />
+            </div>
+
+            <div class="sm:col-span-2 ">
+                <label for="file" class="mb-2 inline-block text-sm  sm:text-base">Upload you files*</label>
+                <input name="file" type="file" multiple="true" autocomplete="off" required class="w-full rounded border bg-gray-50 px-3 py-2 bg-white outline-none ring-indigo-300 transition duration-100 focus:ring" />
+                  
+            </div>
+  
+      
+            <div class="sm:col-span-2">
+              <label for="message" class="mb-2 inline-block text-sm  sm:text-base">Description of blog*</label>
+              <textarea name="message" class="h-64 w-full rounded border bg-gray-50 px-3 py-2  outline-none ring-indigo-300 transition duration-100 focus:ring" required></textarea>
+            </div>
+      
+            <div class="flex items-center justify-between sm:col-span-2">
+              <button class="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">Send</button>
+      
+              <span class="text-sm text-gray-500">*Required</span>
+            </div>
+      
+            
+          </form>
+          <!-- form - end -->
+        </div>
+      </div>
+
+</body>
+</html>
